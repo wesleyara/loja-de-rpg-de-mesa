@@ -11,11 +11,11 @@ function abrir() {
 function ver() {
     loja.innerHTML = `
         <p>Aqui temos 3 itens de muito interesse para qualquer aventureiro, porém você só poderar obter um!</p>
-        <p>Os itens que temos custam 50 PO e são:</p>
+        <p>Os itens que temos custam 100 PO se você escolher e 50 PO se for aleatório e são:</p>
         <p>1 Poção de cura média (1d8+2).</p>
         <p>1 Poção contra o sono.</p>
-        <p>1 Antidoto contra todos os tipos de venenos.</p>
-        <p>Teste a sua sorte!</p>
+        <p>1 Antidoto contra venenos.</p>
+        <p>Teste a sua sorte ou escolha o seu destino!</p>
         <p><input type="button" id="testar" onclick="testar()" value="Testar"> <input type="button" id="escolher" onclick="escolher()" value="Escolher"></p>
         `
 }
@@ -45,7 +45,7 @@ function testar() {
     } else {
         loja.innerHTML = `
         <p>Você recebeu :</p>
-        <p>1 Antidoto contra todos os tipos de venenos.</p>
+        <p>1 Antidoto contra venenos.</p>
         <p><img id= "imagem" src="poçãoveneno.jpg" alt="Foto do dia"></p>
         `
         compras.innerHTML = `
@@ -58,11 +58,11 @@ function testar() {
 function tentar() {
     loja.innerHTML = `
         <p>Aqui temos 3 itens de muito interesse para qualquer aventureiro, porém você só poderar obter um!</p>
-        <p>Os itens que temos custam 50 PO e são:</p>
+        <p>Os itens que temos custam 100 PO se você escolher e 50 PO se for aleatório e são:</p>
         <p>1 Poção de cura média (1d8+2).</p>
         <p>1 Poção contra o sono.</p>
-        <p>1 Antidoto contra todos os tipos de venenos.</p>
-        <p>Teste a sua sorte!</p>
+        <p>1 Antidoto contra venenos.</p>
+        <p>Teste a sua sorte ou escolha o seu destino!</p>
         <p><input type="button" id="testar" onclick="testar()" value="Testar"> <input type="button" id="escolher" onclick="escolher()" value="Escolher"></p>
         `
     compras.innerHTML = ""
