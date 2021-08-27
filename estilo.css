@@ -164,13 +164,6 @@ div#hora {
     flex-wrap: wrap;
 }
 
-h1{
-    background-color: #2e5692;
-    padding: 10px 0;
-    text-align: center;
-    color: white;
-    margin-top: 1px;
-}
 .produto-single img{
     max-width: 100%;
     align-self: center;
