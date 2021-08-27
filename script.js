@@ -104,11 +104,36 @@ function escolher() {
             <div class="produto-single">
                 <img src= ${val.img} />
                 <p>${val.nome}</p>
-                <a key=${val.id} href="#">Adicionar ao carrinho!<a/>
+                <a key=${val.id} href="#">Adicionar a bolsa!<a/>
             </div>
             
             `;
         })
+
+        function atualizarCarrinho() {
+            var containerCarrinho = document.getElementById('bolsa');
+            containerCarrinho.innerHTML = ""
+            itens.map((val)=>{
+                if (val.quantidade > 0)
+                containerCarrinho.innerHTML += ` 
+            <div class="info-single-checkout">
+                <p style="float:left;"> ${val.nome}</p>
+                <p style="float:right;"> Quantidade ${val.quantidade}</p>
+                <div style="clear:both;"></div>
+            </div>    
+                `;
+            })
+        }
+
+            var links = document.getElementsByTagName('a'); /*pode também utilizar a classe para pegar o produto*/
+            for (var i = 0; i < links.length; i++) {
+                links[i].addEventListener("click",function(){
+                    let key = this.getAttribute('key');
+                    itens[key].quantidade++;
+                    atualizarCarrinho();
+                    return false;
+                })
+            }
     }
 
     incializarLoja();
