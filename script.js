@@ -1,6 +1,6 @@
 var item = ['1 Poção de cura média (1d8+2).', '1 Poção contra o sono.', '1 Antidoto contra todos os tipos de venenos.']
-var img = document.createElement('img')
-    //img.hidden = true;
+var img = document.createElement('img');
+
 function abrir() {
     loja.innerHTML = `
     <p>Bem vindos a loja de Fondole, aqui temos das mais variadas coisas para as suas aventuras!</p>
@@ -70,32 +70,32 @@ function tentar() {
     
 }
 
+const itens = [
+    {
+        id: 0,
+        nome: 'Poção de cura média (1d8+2)',
+        img: 'poçãocura.jpg',
+        quantidade: 0
+    },
+
+    {
+        id: 1,
+        nome: 'Poção contra o sono',
+        img: 'poçãosono.png',
+        quantidade: 0
+    },
+
+    {
+        id: 2,
+        nome: 'Antidoto contra venenos',
+        img: 'poçãoveneno.jpg',
+        quantidade: 0
+    }
+]
+
 function escolher() {
     document.getElementById('secti').style.width ="90%"
     loja.innerHTML=""
-    const itens = [
-        {
-            id: 0,
-            nome: 'Poção de cura média (1d8+2)',
-            img: 'poçãocura.jpg',
-            quantidade: 0
-        },
-
-        {
-            id: 1,
-            nome: 'Poção contra o sono',
-            img: 'poçãosono.png',
-            quantidade: 0
-        },
-
-        {
-            id: 2,
-            nome: 'Antidoto contra venenos',
-            img: 'poçãoveneno.jpg',
-            quantidade: 0
-        }
-    ]
-
     function incializarLoja() {
         let containerProdutos = document.getElementById('lolja');
         itens.map((val)=>{
@@ -125,19 +125,49 @@ function escolher() {
             })
         }
 
+        function comprar() {
+            var containerComprar = document.getElementById('loja');
+            containerComprar.innerHTML = ""
+            itens.map((val)=>{
+                let it0 = val.quantidade*100
+                if (val.quantidade > 0 && val.id == 0){
+                containerComprar.innerHTML += ` 
+                <div class="info-single-ct">
+                <p>Você adicionou ${val.quantidade} ${val.nome} que custa ${it0} PO</p>
+                <div style="clear:both;"></div>
+                </div>    
+                `;} else if (val.quantidade > 0 && val.id == 1) {
+                    containerComprar.innerHTML += ` 
+                <div class="info-single-ct">
+                <p>Você adicionou ${val.quantidade} ${val.nome} que custa ${it0} PO</p>
+                <div style="clear:both;"></div>
+                </div>`
+                } else if (val.quantidade > 0 && val.id == 2) {
+                    containerComprar.innerHTML += ` 
+                <div class="info-single-ct">
+                <p>Você adicionou ${val.quantidade} ${val.nome} que custa ${it0} PO</p>
+                <div style="clear:both;"></div>
+                </div>`
+                }
+            })
+        }
+
             var links = document.getElementsByTagName('a'); /*pode também utilizar a classe para pegar o produto*/
             for (var i = 0; i < links.length; i++) {
                 links[i].addEventListener("click",function(){
                     let key = this.getAttribute('key');
                     itens[key].quantidade++;
                     atualizarCarrinho();
+                    comprar();
                     return false;
                 })
             }
+            
     }
 
-    incializarLoja();
+   
 
+    incializarLoja();
 }
 
 function carregar() {
@@ -259,4 +289,3 @@ function carregar() {
     };
 
     const createClock = setInterval(carregar, 1000);
-    
