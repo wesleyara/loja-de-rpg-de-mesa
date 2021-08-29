@@ -48,6 +48,7 @@ input#abrir {
     padding: 3px 10px;
     display: inline-block;
     cursor:pointer;
+    margin-top: 15px;
 }
 
 input#ver {
@@ -192,4 +193,8 @@ div#bolsa {
 div#finda {
     text-align: center;
     font: normal 16pt Arial;
+}
+
+div#audi {
+    text-align: center;
 }
